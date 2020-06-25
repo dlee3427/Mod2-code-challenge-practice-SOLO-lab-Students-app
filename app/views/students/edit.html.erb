@@ -1,0 +1,19 @@
+<h1> Edit Student Form </h1>
+
+<%= form_for @student do |s| %>
+
+    <%= s.label :name %>
+    <%= s.text_field :name%><br>
+
+    <%= s.label :major %>
+    <%= s.text_field :major%><br>
+
+    <%= s.label :age %>
+    <%= s.number_field :age %><br>
+
+    <label>Instructors</label>
+    <%= s.collection_select :instructor_id, Instructor.all, :id, :name %><br>
+
+    <%= s.submit %>
+    
+<% end %>

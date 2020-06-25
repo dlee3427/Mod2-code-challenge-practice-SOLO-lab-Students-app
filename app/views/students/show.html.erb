@@ -1,0 +1,5 @@
+<h3>Student Name:</h3>
+<%= @student.name %><br>
+
+<h3>Instructor Name:</h3>
+<%= link_to @student.instructor.name, instructor_path(@student.instructor) %>

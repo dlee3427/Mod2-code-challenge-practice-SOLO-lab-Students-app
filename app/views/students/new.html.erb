@@ -1,0 +1,29 @@
+<h1>New Student</h1>
+
+
+<% if flash[:error] %>
+    <ul>
+    <% flash[:error].each do |e| %>
+        <li><%= e %></li>
+    <% end %>
+    </ul>
+<% end %>
+
+
+<%= form_for @student do |s| %>
+
+    <%= s.label :name %><br>
+    <%= s.text_field :name%><br>
+
+    <%= s.label :major %><br>
+    <%= s.text_field :major%><br>
+
+    <%= s.label :age %><br>
+    <%= s.number_field :age %><br>
+
+    <label>Instructors: </label><br>
+    <%= s.collection_select :instructor_id, Instructor.all, :id, :name %><br>
+
+    <%= s.submit %>
+    
+<% end %>

@@ -1,0 +1,15 @@
+<h3>Instructor Name:</h3>
+<%= @instructor.name %>
+
+<ul>
+<% @instructor.students.sort_by(&:name).each do |s| %>
+    <li><%= link_to s.name, student_path(s) %></li>
+<% end %>
+</ul>
+
+<h4>Average Student Age:</h4>
+<% sum = @instructor.students.map(&:age).sum %>
+<% result = sum / @instructor.students.count %>
+<%= result %>
+
+
